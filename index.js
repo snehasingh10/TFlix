@@ -25,7 +25,7 @@ app.use(cors(corsOption))
 
 const initFunction = async function() {
     await new connect(dbString, mongoOption).then(() => {
-        app.listen(port, err => {
+        app.listen(process.env.PORT || port, err => {
             console.log((err ? err : 'Listing on port: ' + port))
         })
     }).catch(err => {
